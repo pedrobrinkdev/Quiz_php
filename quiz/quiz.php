@@ -216,7 +216,7 @@ elseif(!isset($_SESSION['nome'])) {
             <!-- Q17 -->
             <div class="question-card">
                 <div class="question-number">Questão 17</div>
-                <div class="question-text">Sobre URLs (marque as corretas):</div>
+                <div class="question-text">Sobre cURL (marque as corretas):</div>
                 <div class="checkbox-group">
                     <label class="option-label"><input type="checkbox" name="q17[]" value="opcao1"> Faz requisições HTTP</label>
                     <label class="option-label"><input type="checkbox" name="q17[]" value="opcao2"> Consome APIs</label>
