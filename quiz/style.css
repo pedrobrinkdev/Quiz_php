@@ -1,0 +1,379 @@
+/* ============================================
+   MATRIX THEME - PHP QUIZ
+   Dark | Green | Silver | Monospace
+   ============================================ */
+
+:root {
+  --bg-deep:        #000000;
+  --bg-panel:       #050f05;
+  --bg-card:        #040d04;
+  --bg-input:       #040d04;
+  --green-bright:   #00ff41;
+  --green-mid:      #00c32e;
+  --green-dim:      #007a1c;
+  --green-ghost:    #00ff4115;
+  --green-border:   #00c32e55;
+  --silver:         #b0bec5;
+  --white:          #e8f5e9;
+  --gray:           #546e7a;
+  --shadow-green:   0 0 18px #00ff4155;
+  --shadow-glow:    0 0 35px #00ff4133;
+}
+
+/* ── Reset & Base ─────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+
+  /* scanline + grid overlay */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,65,0.015) 2px,
+      rgba(0,255,65,0.015) 4px
+    ),
+    radial-gradient(ellipse at 50% 0%, #001a0088 0%, transparent 70%);
+}
+
+/* ── Typography ───────────────────────────── */
+h1, h2, h3 {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--green-bright);
+  text-shadow: var(--shadow-green);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Layout Container ─────────────────────── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Header Bar ───────────────────────────── */
+.page-header {
+  text-align: center;
+  padding: 36px 24px 28px;
+  border-bottom: 1px solid var(--green-border);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.page-header::before {
+  content: '> SISTEMA INICIALIZADO_';
+  display: block;
+  font-size: 11px;
+  color: var(--green-dim);
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  animation: blink-cursor 1.2s step-end infinite;
+}
+
+.page-header h1 {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+}
+
+@keyframes blink-cursor {
+  50% { opacity: 0; }
+}
+
+/* ── Login / Index Page ───────────────────── */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-panel);
+  border: 1px solid var(--green-border);
+  border-radius: 4px;
+  padding: 44px 40px;
+  box-shadow: var(--shadow-glow), inset 0 0 60px rgba(0,255,65,0.03);
+  position: relative;
+}
+
+.login-box::before {
+  content: '[ ACESSO AO SISTEMA ]';
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-deep);
+  color: var(--green-bright);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.login-box h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+
+/* ── Labels ───────────────────────────────── */
+label {
+  display: block;
+  color: var(--silver);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ── Inputs & Selects ─────────────────────── */
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--green-dim);
+  border-radius: 3px;
+  color: var(--green-bright);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: var(--green-bright);
+  box-shadow: 0 0 10px #00ff4133;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300ff41' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+select option {
+  background: var(--bg-panel);
+  color: var(--white);
+}
+
+/* ── Radio & Checkbox ─────────────────────── */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--green-bright);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  color: var(--silver);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.option-label:hover {
+  background: var(--green-ghost);
+  border-color: var(--green-border);
+  color: var(--white);
+}
+
+/* ── Buttons ──────────────────────────────── */
+input[type="submit"],
+button[type="submit"],
+.btn {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--green-bright);
+  border-radius: 3px;
+  color: var(--green-bright);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 13px 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+.btn:hover {
+  background: var(--green-bright);
+  color: var(--bg-deep);
+  box-shadow: var(--shadow-green);
+}
+
+/* Logout button — smaller, subdued */
+.btn-logout {
+  width: auto;
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 11px;
+  border-color: var(--green-dim);
+  color: var(--green-dim);
+  margin-top: 32px;
+}
+
+.btn-logout:hover {
+  border-color: var(--green-bright);
+  background: var(--green-bright);
+  color: var(--bg-deep);
+}
+
+/* ── Quiz Form ────────────────────────────── */
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Each question card */
+.question-card {
+  background: var(--bg-card);
+  border: 1px solid var(--green-border);
+  border-left: 3px solid var(--green-mid);
+  border-radius: 4px;
+  padding: 22px 26px;
+  position: relative;
+  transition: border-left-color 0.2s, box-shadow 0.2s;
+}
+
+.question-card:hover {
+  border-left-color: var(--green-bright);
+  box-shadow: -4px 0 16px #00ff4122;
+}
+
+/* Question number badge */
+.question-number {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--green-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Question text */
+.question-text {
+  color: var(--white);
+  font-size: 14.5px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* ── Resultado Page ───────────────────────── */
+.resultado-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--green-border);
+  border-radius: 4px;
+  padding: 40px 36px;
+  box-shadow: var(--shadow-glow);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.resultado-box .user-info {
+  color: var(--silver);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.resultado-box .score {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  color: var(--green-bright);
+  text-shadow: var(--shadow-green);
+  margin: 16px 0 4px;
+  letter-spacing: 0.05em;
+}
+
+.resultado-box .desempenho {
+  color: var(--silver);
+  font-size: 13px;
+  border-left: 3px solid var(--green-mid);
+  padding-left: 12px;
+  margin: 16px 0 24px;
+}
+
+.frase-dia {
+  border-top: 1px solid var(--green-border);
+  padding-top: 22px;
+  margin-top: 22px;
+  color: var(--gray);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.frase-dia::before {
+  content: '// frase do dia';
+  display: block;
+  font-style: normal;
+  color: var(--green-dim);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+/* ── Scrollbar ────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-mid); }
+
+/* ── Selection ────────────────────────────── */
+::selection {
+  background: var(--green-mid);
+  color: var(--bg-deep);
+}
+
+/* ── Responsivo ───────────────────────────── */
+@media (max-width: 540px) {
+  .login-box { padding: 32px 22px; }
+  .question-card { padding: 18px 16px; }
+  .resultado-box { padding: 28px 18px; }
+}
